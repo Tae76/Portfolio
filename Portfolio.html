@@ -29,8 +29,9 @@
   <nav>
     <a href="contact.html">Contact Me</a>
     <a href="About Me.html">About Me</a>
-    <a href="index.html">Home</a>
+	<a href="index.html">Home</a>
   </nav>
+
 
   <section id="portfolio">
     <h2>#projects</h2>
@@ -86,5 +87,50 @@
       </div>
     </div>
   </section>
+  <a href="#top" class="back-to-top"> Back to Top</a>
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    const planet = document.querySelector('.planet');
+    const stars = document.querySelector('.stars');
+
+    if (planet) {
+      planet.style.transform = `translateX(-50%) translateY(${scrollY * -0.05}px)`;
+    }
+
+    if (stars) {
+      stars.style.transform = `translateY(${scrollY * -0.2}px)`;
+    }
+  });
+</script>
+<div class="tech-space">
+  <div class="stars"></div>
+
+  <div class="planet">
+    <div class="ring ring1"></div>
+    <div class="ring ring2"></div>
+
+    <div class="satellite sat1"></div>
+    <div class="satellite sat2"></div>
+
+    <a href="https://developer.mozilla.org" target="_blank" class="orbit-code orbit1">{ }</a>
+    <a href="https://github.com" target="_blank" class="orbit-code orbit2">λ</a>
+    <a href="https://www.oracle.com/database/technologies/oracle-live-sql/" target="_blank" class="orbit-code orbit3">≠</a>
+    <a href="https://css-tricks.com" target="_blank" class="orbit-code orbit4">∑</a>
+    <a href="https://stackoverflow.com" target="_blank" class="orbit-code orbit5">∞</a>
+  </div>
+</div>
+<script>
+  document.querySelectorAll('.fullscreen-img').forEach(img => {
+    img.addEventListener('click', () => {
+      const overlay = document.createElement('div');
+      overlay.className = 'fullscreen-overlay';
+      overlay.innerHTML = `<img src="${img.src}" alt="Fullscreen">`;
+      overlay.addEventListener('click', () => document.body.removeChild(overlay));
+      document.body.appendChild(overlay);
+    });
+  });
+</script>
 </body>
 </html>
